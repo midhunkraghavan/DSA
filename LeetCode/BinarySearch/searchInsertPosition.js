@@ -39,6 +39,8 @@
 
 
 var searchInsert = function (nums, target) {
+    console.log(nums);
+    console.log(target);
 
     let firstIndex = 0
     let lastIndex = nums.length - 1
@@ -52,27 +54,19 @@ var searchInsert = function (nums, target) {
         }
 
         if (target < nums[middleIndex]) {
-
             lastIndex = middleIndex - 1
-
-            if(target > nums[lastIndex] && target < nums[middleIndex] ){
-                
-            }
-
-
         }
+
         if (target > nums[middleIndex]) {
-
             firstIndex = middleIndex + 1
-
         }
 
     }
 
-    return -1
+
 
 };
 
-console.log(searchInsert([1, 3, 5, 6], 5))
 console.log(searchInsert([1, 3, 5, 6], 2))
-console.log(searchInsert([1, 3, 5, 6], 7))
+// console.log(searchInsert([0,2,3,4,5,10], 11))
+//console.log(searchInsert([1, 3, 5, 6], 7))
