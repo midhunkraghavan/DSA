@@ -10,7 +10,7 @@ function quickSort(arr) {
      let pivot = arr[arr.length-1]
 
      let leftArray = []
-     let rightArray = []
+     let rightArray = [] 
  
      for (let i=0 ; i<arr.length-1; i++) {
          if (pivot < arr[i]) {
