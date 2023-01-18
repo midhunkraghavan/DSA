@@ -1,86 +1,31 @@
-// Sort array of element using Quick sort.
+// Sort array of element using Recursive Quick sort.
 
-// function quickSort(arr) {
-//    // console.log(arr);
+// Worst Case Complexity - O(n^2)
+// Average Case Complexity -O(nlogn)
 
-//    if(arr.length < 2) return arr
-
-//     let pivot = arr[arr.length - 1]
-
-//   //  console.log(pivot);
-
-//     let leftArray = []
-//     let rightArray = []
-
-//     for (let el of arr) {
-//         if (pivot < el) {
-//             rightArray.push(el)
-//         }
-//         if (pivot > el) {
-//             leftArray.push(el)
-//         }
-//     }
-
-//     console.log(leftArray);
-//     console.log(rightArray);
-
-//     return [... quickSort(leftArray),pivot,...quickSort(rightArray)]
-// }
-
-// console.log(quickSort([10,1,1,8,3,6,5,4,7,2,2,9,0]))
-
-
-
-
-function swap(items, leftIndex, rightIndex){
-    var temp = items[leftIndex];
-    items[leftIndex] = items[rightIndex];
-    items[rightIndex] = temp;
-}
-
-function partition(items, left, right) {
-
-    var pivot   = items[Math.floor((right + left) / 2)], //middle element   
-        i       = left, //left pointer
-        j       = right; //right pointer
-
-    while (i <= j) {
-        while (items[i] < pivot) {
-            i++;
-        }
-        while (items[j] > pivot) {
-            j--;
-        }
-        if (i <= j) {
-            swap(items, i, j); //sawpping two elements
-            i++;
-            j--;
-        }
-    }
+function quickSort(arr) {
     
-    return i;
-}
+    if(arr.length < 2) return arr
+ 
+     let pivot = arr[arr.length-1]
 
-function quickSort(items, left, right) {
-    var index;
+     let leftArray = []
+     let rightArray = []
+ 
+     for (let i=0 ; i<arr.length-1; i++) {
+         if (pivot < arr[i]) {
+             rightArray.push(arr[i])
+         }
+         if (pivot >= arr[i]) {
+             leftArray.push(arr[i])
+         }
+     }
 
-    if (items.length > 1) {
+     return [... quickSort(leftArray),pivot,...quickSort(rightArray)]
 
-        index = partition(items, left, right); //index returned from partition
+ }
+ 
+ console.log(quickSort([10,1,1,8,3,6,5,4,7,2,2,9,0,5]))
 
-        if (left < index - 1) { //more elements on the left side of the pivot
-            quickSort(items, left, index - 1);
-        }
 
-        if (index < right) { //more elements on the right side of the pivot
-            quickSort(items, index, right);
-        }
-    }
-    return items;
-}
 
-// first call to quick sort
-
-var items = [5,3,3,7,6,2,9];
-var sortedArray = quickSort(items, 0, items.length - 1);
-console.log(sortedArray); //prints [2,3,5,6,7,9]
