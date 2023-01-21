@@ -1,4 +1,4 @@
-// Sort array of element using merge sort.
+// Sort array of element using Merge Sort.
 
 function mergeSort(arr) {
 
