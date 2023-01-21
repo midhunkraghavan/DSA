@@ -1,4 +1,4 @@
- // Power of Two
+// Power of Two
 
 function power(num) {
     if (num < 1) return false
@@ -20,7 +20,7 @@ function power(num) {
 
 function powerOfTwo(num) {
     if (num < 1) return false
-    return (num&num-1)===0
+    return (num & num - 1) === 0
 }
 
 console.log(power(512))

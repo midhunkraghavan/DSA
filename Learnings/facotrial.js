@@ -15,7 +15,7 @@ function factorial(num) {
 
 function factorialUsingRecurrsion(num) {
     if (num == 0) return 1
-    return num * factorialUsingRecurrsion(num-1)
+    return num * factorialUsingRecurrsion(num - 1)
 
 }
 console.log(factorialUsingRecurrsion(5))
