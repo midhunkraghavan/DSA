@@ -39,29 +39,27 @@
 
 
 var searchInsert = function (nums, target) {
-    console.log(nums);
-    console.log(target);
 
-    let firstIndex = 0
-    let lastIndex = nums.length - 1
+    // let firstIndex = 0
+    // let lastIndex = nums.length - 1
 
-    while (firstIndex <= lastIndex) {
+    // while (firstIndex <= lastIndex) {
 
-        let middleIndex = Math.floor((firstIndex + lastIndex) / 2)
+    //     let middleIndex = Math.floor((firstIndex + lastIndex) / 2)
 
-        if (target == nums[middleIndex]) {
-            return middleIndex
-        }
+    //     if (target == nums[middleIndex]) {
+    //         return middleIndex
+    //     }
 
-        if (target < nums[middleIndex]) {
-            lastIndex = middleIndex - 1
-        }
+    //     if (target < nums[middleIndex]) {
+    //         lastIndex = middleIndex - 1
+    //     }
 
-        if (target > nums[middleIndex]) {
-            firstIndex = middleIndex + 1
-        }
+    //     if (target > nums[middleIndex]) {
+    //         firstIndex = middleIndex + 1
+    //     }
 
-    }
+    // }
 
     for (let i = 0; i < nums.length; i++) {
 
@@ -71,6 +69,10 @@ var searchInsert = function (nums, target) {
 
         if (target > nums[nums.length - 1]) {
             return nums.length
+        }
+
+        if (target == nums[i]) {
+            return i
         }
 
         if (target > nums[i] && target < nums[i + 1]) {
@@ -84,5 +86,10 @@ var searchInsert = function (nums, target) {
 };
 
 console.log(searchInsert([1, 3, 5, 6], 0))
-// console.log(searchInsert([0,2,3,4,5,10], 11))
-//console.log(searchInsert([1, 3, 5, 6], 7))
+console.log(searchInsert([0, 2, 3, 4, 5, 10], 11))
+console.log(searchInsert([1, 3, 5, 6], 7))
+
+
+/**
+ *    Solution - 2
+ * */
