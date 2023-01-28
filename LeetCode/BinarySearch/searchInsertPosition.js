@@ -34,42 +34,21 @@
 
 
 /**
- *    Solution - 1 
+ *    Solution - 1  Big - O - O(n)
  * */
 
 
-var searchInsert = function (nums, target) {
+var searchInsert1 = function (nums, target) {
 
-    // let firstIndex = 0
-    // let lastIndex = nums.length - 1
+    if (target < nums[0]) {
+        return 0
+    }
 
-    // while (firstIndex <= lastIndex) {
-
-    //     let middleIndex = Math.floor((firstIndex + lastIndex) / 2)
-
-    //     if (target == nums[middleIndex]) {
-    //         return middleIndex
-    //     }
-
-    //     if (target < nums[middleIndex]) {
-    //         lastIndex = middleIndex - 1
-    //     }
-
-    //     if (target > nums[middleIndex]) {
-    //         firstIndex = middleIndex + 1
-    //     }
-
-    // }
+    if (target > nums[nums.length - 1]) {
+        return nums.length
+    }
 
     for (let i = 0; i < nums.length; i++) {
-
-        if (target < nums[0]) {
-            return 0
-        }
-
-        if (target > nums[nums.length - 1]) {
-            return nums.length
-        }
 
         if (target == nums[i]) {
             return i
@@ -85,11 +64,54 @@ var searchInsert = function (nums, target) {
 
 };
 
-console.log(searchInsert([1, 3, 5, 6], 0))
-console.log(searchInsert([0, 2, 3, 4, 5, 10], 11))
-console.log(searchInsert([1, 3, 5, 6], 7))
+// console.log(searchInsert1([1, 3, 5, 6], 0))
+// console.log(searchInsert1([0, 2, 3, 4, 5, 10], 11))
+// console.log(searchInsert1([1, 3, 5, 6], 7))
 
 
 /**
  *    Solution - 2
  * */
+
+var searchInsert2 = function (nums, target) {
+
+    if (target < nums[0]) {
+        return 0
+    }
+
+    if (target > nums[nums.length - 1]) {
+        return nums.length
+    }
+
+    let firstIndex = 0
+    let lastIndex = nums.length - 1
+
+    while (firstIndex <= lastIndex) {
+
+        let middleIndex = Math.floor((firstIndex + lastIndex) / 2)
+
+        if (target == nums[middleIndex]) {
+            return middleIndex
+        }
+
+        if (target < nums[middleIndex]) {
+            lastIndex = middleIndex - 1
+
+        }
+
+        if (target > nums[middleIndex]) {
+            firstIndex = middleIndex + 1
+
+        }
+
+        if(target > nums[middleIndex-1] && target < nums[middleIndex]){
+            return middleIndex
+        }
+
+    }
+
+};
+
+console.log(searchInsert2([1, 3, 5, 6], 0))
+console.log(searchInsert2([0, 2, 3, 4, 5, 10], 11))
+console.log(searchInsert2([1, 3, 5, 6], 7))
