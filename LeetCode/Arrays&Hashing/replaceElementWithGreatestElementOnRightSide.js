@@ -35,12 +35,25 @@ Explanation: There are no elements to the right of index 0.
 */
 
 var replaceElements = function (arr) {
-    console.log(arr);
+
     if (arr.length == 1) return [-1]
+
+    let newArray = []
+
     for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
+
+        let gretestElement = -1
+
+        for (let j = i + 1; j < arr.length; j++) {
+            if (gretestElement < arr[j]) {
+                gretestElement = arr[j]
+            }
+        }
+        newArray.push(gretestElement)
     }
+
+    return newArray
 };
 
 console.log(replaceElements([17, 18, 5, 4, 6, 1]))
-//console.log(replaceElements([400]))
+console.log(replaceElements([400]))
