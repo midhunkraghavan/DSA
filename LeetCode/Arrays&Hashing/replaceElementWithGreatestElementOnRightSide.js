@@ -31,7 +31,7 @@ Explanation: There are no elements to the right of index 0.
 
 
 /**
-*  Solution 1 - 
+*  Solution 1
 */
 
 var replaceElements = function (arr) {
